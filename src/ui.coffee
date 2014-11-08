@@ -1,7 +1,12 @@
 z = require 'zorium'
+Clay = require 'clay-javascript-sdk'
+
+iconStyle = require './icon.styl'
+iconStyle.use()
 
 components =
-  ad: require './components/ad'
+  bannerAd: require './components/banner_ad'
+  pageAd: require './components/page_ad'
 
 ui = (componentName, options) ->
   unless components[componentName]
@@ -11,13 +16,9 @@ ui = (componentName, options) ->
 
   component = new ComponentClass options
 
-  component.$el = document.createElement 'div'
-  component.redraw = ->
-    z.render component.$el, component.render()
-
   component.redraw()
 
   return component
 
-window.Clay?.ui = ui
+
 module.exports = ui

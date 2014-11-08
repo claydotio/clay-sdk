@@ -1,0 +1,99 @@
+// TODO: Auto-generate this css file, store on CDN (//cdn.wtf/d/icon_font/css/icons.css)
+/* icon font */
+@font-face
+  font-family: 'icons'
+  src: url('//cdn.wtf/d/icon_font/font/icons.eot?16920335')
+  src: url('//cdn.wtf/d/icon_font/font/icons.eot?16920335#iefix') format('embedded-opentype'),
+       url('//cdn.wtf/d/icon_font/font/icons.woff?16920335') format('woff'),
+       url('//cdn.wtf/d/icon_font/font/icons.ttf?16920335') format('truetype'),
+       url('//cdn.wtf/d/icon_font/font/icons.svg?16920335#stars') format('svg')
+  font-weight: normal
+  font-style: normal
+
+.icon:before
+  font-family: "icons"
+  font-style: normal
+  font-weight: normal
+  speak: none
+  display: inline-block
+  text-decoration: inherit
+  width: 1em
+  text-align: center
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal
+  text-transform: none
+  font-size: 100%
+
+.icon-star:before { content: '\e800'; } /* '' */
+.icon-star-half-fill:before { content: '\e801'; } /* '' */
+.icon-share:before { content: '\e802'; } /* '' */
+.icon-market:before { content: '\e803'; } /* '' */
+.icon-back-arrow:before { content: '\e804'; } /* '' */
+.icon-close:before { content: '\e805'; } /* '' */
+.icon-chevron-left:before { content: '\e806'; } /* '' */
+.icon-chevron-right:before { content: '\e807'; } /* '' */
+.icon-check:before { content: '\e808'; } /* '' */
+.icon-help:before { content: '\e809'; } /* '' */
+.icon-refresh:before { content: '\e80a'; } /* '' */
+.icon-ticket:before { content: '\e80b'; } /* '' */
+.icon-challenge:before { content: '\e80c'; } /* '' */
+.icon-achievement:before { content: '\e80d'; } /* '' */
+.icon-badge:before { content: '\e80e'; } /* '' */
+.icon-crown:before { content: '\e80f'; } /* '' */
+.icon-dice:before { content: '\e810'; } /* '' */
+.icon-chat:before { content: '\e811'; } /* '' */
+.icon-controller:before { content: '\e812'; } /* '' */
+.icon-smartphone:before { content: '\e813'; } /* '' */
+.icon-save:before { content: '\e814'; } /* '' */
+.icon-delete:before { content: '\e815'; } /* '' */
+.icon-edit:before { content: '\e816'; } /* '' */
+.icon-cloud:before { content: '\e817'; } /* '' */
+.icon-cloud-upload:before { content: '\e818'; } /* '' */
+.icon-zipped:before { content: '\e819'; } /* '' */
+.icon-package:before { content: '\e81a'; } /* '' */
+.icon-mail:before { content: '\e81b'; } /* '' */
+.icon-folder:before { content: '\e81c'; } /* '' */
+.icon-notification:before { content: '\e81d'; } /* '' */
+.icon-search:before { content: '\e81e'; } /* '' */
+.icon-settings:before { content: '\e81f'; } /* '' */
+.icon-logout:before { content: '\e820'; } /* '' */
+.icon-locked:before { content: '\e821'; } /* '' */
+.icon-home:before { content: '\e822'; } /* '' */
+.icon-globe:before { content: '\e823'; } /* '' */
+.icon-time:before { content: '\e824'; } /* '' */
+.icon-link:before { content: '\e825'; } /* '' */
+.icon-heart:before { content: '\e826'; } /* '' */
+.icon-chart:before { content: '\e827'; } /* '' */
+.icon-credit-card:before { content: '\e828'; } /* '' */
+.icon-male:before { content: '\e829'; } /* '' */
+.icon-female:before { content: '\e82a'; } /* '' */
+.icon-help-alt:before { content: '\e82b'; } /* '' */
+.icon-menu:before { content: '\e82c'; } /* '' */
+.icon-arrow-down:before { content: '\e82d'; } /* '' */
+.icon-arrow-up:before { content: '\e82e'; } /* '' */
+.icon-group:before { content: '\e82f'; } /* '' */
+.icon-calendar:before { content: '\e830'; } /* '' */
+
+.icon-star, .icon-star-half-fill
+  &.is-filled
+    color: $orange
+  &.is-empty
+    color: $grayLight
+
+// properly handle a half-filled star
+.icon-star-half-fill
+  position: relative
+
+  &:before
+    position: relative
+    z-index: 1
+
+  .icon-star:before
+    position: absolute
+    z-index: 0
+    left: 0
+    bottom: 0
+
+
+.icon
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)

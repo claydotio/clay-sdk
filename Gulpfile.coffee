@@ -19,7 +19,7 @@ paths =
   scripts: ['./src/**/*.coffee', './*.coffee']
   tests: './test/**/*.coffee'
   root: './src/ui.coffee'
-  rootTests: './test/ui.coffee'
+  rootTests: './test/index.coffee'
   dist: './dist/'
   build: './build/'
 
@@ -58,9 +58,9 @@ gulp.task 'scripts:test', ->
         { test: /\.coffee$/, loader: 'transform/cacheable?envify' }
       ]
       loaders: [
-        { test: /\.coffee$/, loader: 'coffee-loader' }
-        { test: /\.json$/, loader: 'json-loader' }
-        { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
+        { test: /\.coffee$/, loader: 'coffee' }
+        { test: /\.json$/, loader: 'json' }
+        { test: /\.styl$/, loader: 'style/useable!css!stylus' }
       ]
     plugins: [
       new RewirePlugin()
@@ -70,8 +70,8 @@ gulp.task 'scripts:test', ->
       # browser-builtins is for modules requesting native node modules
       modulesDirectories: ['web_modules', 'node_modules', './src',
       './node_modules/browser-builtins/builtin']
-  .pipe rename 'clay_ui.js'
-  .pipe gulp.dest paths.build + '/test/'
+  .pipe rename 'tests.js'
+  .pipe gulp.dest paths.build
 
 
 # run coffee-lint
@@ -116,9 +116,9 @@ gulp.task 'scripts:prod', ->
         { test: /\.coffee$/, loader: 'transform/cacheable?envify' }
       ]
       loaders: [
-        { test: /\.coffee$/, loader: 'coffee-loader' }
-        { test: /\.json$/, loader: 'json-loader' }
-        { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
+        { test: /\.coffee$/, loader: 'coffee' }
+        { test: /\.json$/, loader: 'json' }
+        { test: /\.styl$/, loader: 'style/useable!css!stylus' }
       ]
     plugins: [
       new webpackSource.optimize.UglifyJsPlugin()

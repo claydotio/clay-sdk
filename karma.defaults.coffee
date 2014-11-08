@@ -17,7 +17,7 @@ module.exports =
 
     # list of files / patterns to load in the browser
     files: [
-      'build/test/bundle.js'
+      'build/tests.js'
     ]
 
 

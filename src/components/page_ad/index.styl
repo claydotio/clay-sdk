@@ -1,0 +1,40 @@
+json('../../vars.styl.json')
+
+.c-page-ad-background
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, .9)
+  z-index: $zIndexPageAd
+
+.c-page-ad-close
+  color: white
+  font-size: 3.4rem
+  position: fixed
+  top: 10px
+  right: 10px
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.75)
+
+.c-page-ad-full-portrait
+  width: 320px
+  height: 480px
+  position: fixed
+  left: 50%
+  top: 50%
+  margin-left: (-@width/2)
+  margin-top: (-@height/2)
+
+.c-page-ad-full-landscape
+  width: 480px
+  height: 320px
+  position: fixed
+  left: 50%
+  top: 50%
+  margin-left: (-@width/2)
+  margin-top: (-@height/2)
+
+
+iframe
+  background: red
