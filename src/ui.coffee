@@ -20,7 +20,7 @@ ui = (componentName, options) ->
 
   return component
 
-ui.version = 'v0.0.1'
+ui.version = 'v0.0.2'
 
 
 module.exports = ui

@@ -112,6 +112,8 @@ gulp.task 'clean:dist', ->
 gulp.task 'scripts:prod', ->
   gulp.src paths.root
   .pipe webpack
+    output:
+      library: 'Clay'
     module:
       postLoaders: [
         { test: /\.coffee$/, loader: 'transform/cacheable?envify' }
