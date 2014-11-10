@@ -18,7 +18,7 @@ outFiles =
 paths =
   scripts: ['./src/**/*.coffee', './*.coffee']
   tests: './test/**/*.coffee'
-  root: './src/ui.coffee'
+  root: './src/index.coffee'
   rootTests: './test/index.coffee'
   dist: './dist/'
   build: './build/'
