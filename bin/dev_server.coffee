@@ -10,7 +10,7 @@ webpackDevPort = process.env.PORT or 3004
 webpackDevHostname = process.env.WEBPACK_DEV_HOSTNAME
 
 entries = [
-  "webpack-dev-server/client?http://localhost:#{webpackDevPort}"
+  "webpack-dev-server/client?http://#{webpackDevHostname}:#{webpackDevPort}"
   'webpack/hot/dev-server'
   './src/demo'
 ]
@@ -20,7 +20,7 @@ new WebpackDevServer webpack({
   output:
     path: __dirname,
     filename: 'clay_ui.js',
-    publicPath: "//localhost:#{webpackDevPort}/"
+    publicPath: "//#{webpackDevHostname}:#{webpackDevPort}/"
   devtool: '#inline-source-map'
   module:
     postLoaders: [
@@ -37,7 +37,7 @@ new WebpackDevServer webpack({
   resolve:
     extensions: ['.coffee', '.js', '.json', '']
 }),
-  publicPath: "//localhost:#{webpackDevPort}/"
+  publicPath: "//#{webpackDevHostname}:#{webpackDevPort}/"
   hot: true
 .listen webpackDevPort, (err) ->
   if err

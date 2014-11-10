@@ -1,6 +1,6 @@
 {
   "name": "clay-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "gulp-rename": "1.2.0",
     "gulp-run-sequence": "0.3.2",
     "gulp-webpack": "1.0.0",
+    "json-loader": "0.5.1",
     "karma": "0.12.24",
     "karma-chrome-launcher": "0.1.5",
     "karma-firefox-launcher": "0.1.3",

@@ -1,6 +1,6 @@
 Clay = require './index'
 
-Clay.init({gameId: 1}).then ->
+Clay.init({gameId: 1, debug: true}).then ->
   adTop = Clay.ui 'pageAd'
   adBottom = Clay.ui 'bannerAd', position: 'bottom'
   adFull = Clay.ui 'bannerAd', position: 'top'

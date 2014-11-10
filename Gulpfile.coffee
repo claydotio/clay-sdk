@@ -53,6 +53,7 @@ gulp.task 'scripts:test', ->
 
   gulp.src paths.rootTests
   .pipe webpack
+    devtool: '#inline-source-map'
     module:
       postLoaders: [
         { test: /\.coffee$/, loader: 'transform/cacheable?envify' }
@@ -90,7 +91,7 @@ gulp.task 'server', ->
   nodemon {script: 'bin/dev_server.coffee', ext: 'null', ignore: ['**/*.*']}
 
 gulp.task 'watch:test', ->
-  gulp.watch paths.tests, ['test:phantom']
+  gulp.watch paths.scripts.concat([paths.tests]), ['test:phantom']
 
 # run coffee-lint
 gulp.task 'lint:scripts', ->
