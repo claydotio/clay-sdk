@@ -23,3 +23,24 @@ describe 'ui()', ->
       done new Error 'expected error'
     catch
       done()
+
+  it 'fails when options is array', (done) ->
+    try
+      ui('bannerAd', [])
+      done new Error 'expected error'
+    catch
+      done()
+
+  it 'fails when options is a string', (done) ->
+    try
+      ui('bannerAd', 'options')
+      done new Error 'expected error'
+    catch
+      done()
+
+  it 'fails when options is a number', (done) ->
+    try
+      ui('bannerAd', 1)
+      done new Error 'expected error'
+    catch
+      done()

@@ -10,7 +10,10 @@ components =
 
 ui = (componentName, options) ->
   unless components[componentName]
-    throw new Error 'Component not found', componentName
+    throw new Error 'Component not found' + componentName
+
+  if options? and Object::toString.call(options) isnt '[object Object]'
+    throw new Error 'options must be an object'
 
   ComponentClass = components[componentName]
 

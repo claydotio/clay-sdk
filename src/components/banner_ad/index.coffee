@@ -8,13 +8,17 @@ config = require '../../config'
 url = require '../../util/url'
 
 module.exports = class BannerAd extends UIComponent
-  constructor: ({position}) ->
+  constructor: ({position} = {}) ->
     super()
     styles.use()
 
     gameId = Clay._config.gameId
+
     unless gameId
       throw new Error 'Missing gameId, Clay.init() may not have been called'
+
+    if position not in ['top', 'bottom']
+      throw new Error 'Invalid or missing position'
 
     position ?= 'bottom'
 
