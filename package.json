@@ -1,6 +1,6 @@
 {
-  "name": "clay-ui",
-  "version": "0.0.2",
+  "name": "clay-sdk",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -41,7 +41,7 @@
     "webpack-dev-server": "1.6.5"
   },
   "dependencies": {
-    "clay-javascript-sdk": "0.0.6",
+    "clay-sdk-base": "0.0.7",
     "coffee-script": "1.8.0",
     "zorium": "0.1.0"
   }
