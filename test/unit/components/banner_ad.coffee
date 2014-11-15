@@ -5,15 +5,14 @@ Clay = require 'clay-javascript-sdk'
 
 describe 'banner ad', ->
   it 'renders iframe bottom', ->
-    Clay.init(gameId: '1')
-    banner = new BannerAd position: 'bottom'
+    banner = new BannerAd {gameId: '1'}, {position: 'bottom'}
     dom = banner.render()
     dom.tag.should.be 'iframe'
     dom.attrs.className.should.be 'c-banner-ad-bottom'
 
   it 'renders iframe top', ->
     Clay.init(gameId: '1')
-    banner = new BannerAd position: 'top'
+    banner = new BannerAd {gameId: '1'}, {position: 'top'}
     dom = banner.render()
     dom.tag.should.be 'iframe'
     dom.attrs.className.should.be 'c-banner-ad-top'

@@ -3,8 +3,7 @@ Clay = require 'clay-javascript-sdk'
 
 describe 'page ad', ->
   it 'renders iframe', ->
-    Clay.init(gameId: '1')
-    ad = new PageAd()
+    ad = new PageAd(gameId: '1')
     dom = ad.render()
     dom.tag.should.be 'div'
     dom.children[0].attrs.className.should.be 'c-page-ad-close'

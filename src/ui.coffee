@@ -8,20 +8,21 @@ components =
   bannerAd: require './components/banner_ad'
   pageAd: require './components/page_ad'
 
-ui = (componentName, options) ->
-  unless components[componentName]
-    throw new Error 'Component not found' + componentName
+ui = (componentName, options = {}) ->
+  Clay.config.then (config) ->
+    unless components[componentName]
+      throw new Error 'Component not found' + componentName
 
-  if options? and Object::toString.call(options) isnt '[object Object]'
-    throw new Error 'options must be an object'
+    if Object::toString.call(options) isnt '[object Object]'
+      throw new Error 'options must be an object'
 
-  ComponentClass = components[componentName]
+    ComponentClass = components[componentName]
 
-  component = new ComponentClass options
+    component = new ComponentClass config, options
 
-  component.redraw()
+    component.redraw()
 
-  return component
+    return component
 
 ui.version = 'v0.0.2'
 

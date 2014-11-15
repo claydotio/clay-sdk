@@ -1,46 +1,49 @@
-ui = require 'ui'
+rewire = require 'rewire'
+Promise = require 'bluebird'
+
+ui = rewire 'ui'
+ui.__set__ 'Clay.config', Promise.resolve({gameId: '1'})
 
 packageConfig = require '../../package.json'
 
 describe 'ui()', ->
+
   it 'has a version', ->
     ui.version.should.be 'v' + packageConfig.version
 
   it 'returns banner ad components', ->
-    banner = ui('bannerAd', {position: 'top'})
-    banner.$el.should.exist
-
-    banner = ui('bannerAd', {position: 'bottom'})
-    banner.$el.should.exist
+    ui('bannerAd', {position: 'top'})
+    .then (banner) ->
+      banner.$el.should.exist
+    .then ->
+      ui('bannerAd', {position: 'bottom'})
+    .then (banner) ->
+      banner.$el.should.exist
 
   it 'returns page ad components', ->
-    ad = ui('pageAd')
-    ad.$el.should.exist
+    ui('pageAd').then (ad) ->
+      ad.$el.should.exist
 
   it 'fails to return invalid component', (done) ->
-    try
-      ui('INVALID')
+    ui('INVALID').then ->
       done new Error 'expected error'
-    catch
+    , ->
       done()
 
   it 'fails when options is array', (done) ->
-    try
-      ui('bannerAd', [])
+    ui('bannerAd', []).then ->
       done new Error 'expected error'
-    catch
+    , ->
       done()
 
   it 'fails when options is a string', (done) ->
-    try
-      ui('bannerAd', 'options')
+    ui('bannerAd', 'options').then ->
       done new Error 'expected error'
-    catch
+    , ->
       done()
 
   it 'fails when options is a number', (done) ->
-    try
-      ui('bannerAd', 1)
+    ui('bannerAd', 1).then ->
       done new Error 'expected error'
-    catch
+    , ->
       done()

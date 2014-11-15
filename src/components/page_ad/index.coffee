@@ -8,13 +8,9 @@ config = require '../../config'
 url = require '../../util/url'
 
 module.exports = class PageAd extends UIComponent
-  constructor: ->
+  constructor: ({gameId} = {}) ->
     super()
     styles.use()
-
-    gameId = Clay._config.gameId
-    unless gameId
-      throw new Error 'Missing gameId, Clay.init() may not have been called'
 
     lang = if window.navigator.language \
            then window.navigator.language
