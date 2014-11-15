@@ -1,4 +1,4 @@
-Clay = require 'clay-javascript-sdk'
+Clay = require 'clay-sdk-base'
 
 # Function::bind polyfill
 unless Function::bind

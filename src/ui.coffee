@@ -1,5 +1,5 @@
 z = require 'zorium'
-Clay = require 'clay-javascript-sdk'
+Clay = require 'clay-sdk-base'
 
 iconStyle = require './icon.styl'
 iconStyle.use()
@@ -24,7 +24,7 @@ ui = (componentName, options = {}) ->
 
     return component
 
-ui.version = 'v0.0.2'
+ui.version = 'v0.0.7'
 
 
 module.exports = ui

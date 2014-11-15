@@ -1,5 +1,5 @@
 z = require 'zorium'
-Clay = require 'clay-javascript-sdk'
+Clay = require 'clay-sdk-base'
 
 styles = require './index.styl'
 

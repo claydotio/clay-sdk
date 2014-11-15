@@ -1,5 +1,5 @@
 PageAd = require 'components/page_ad'
-Clay = require 'clay-javascript-sdk'
+Clay = require 'clay-sdk-base'
 
 describe 'page ad', ->
   it 'renders iframe', ->

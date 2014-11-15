@@ -1,7 +1,7 @@
 should = require('clay-chai').should()
 
 BannerAd = require 'components/banner_ad'
-Clay = require 'clay-javascript-sdk'
+Clay = require 'clay-sdk-base'
 
 describe 'banner ad', ->
   it 'renders iframe bottom', ->
