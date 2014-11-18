@@ -19,7 +19,7 @@ new WebpackDevServer webpack({
   entry: entries
   output:
     path: __dirname,
-    filename: 'clay_ui.js',
+    filename: 'clay_sdk.js',
     publicPath: "//#{webpackDevHostname}:#{webpackDevPort}/"
   devtool: '#inline-source-map'
   module:

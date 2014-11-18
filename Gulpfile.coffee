@@ -128,5 +128,5 @@ gulp.task 'scripts:prod', ->
     ]
     resolve:
       extensions: ['.coffee', '.js', '.json', '']
-  .pipe rename 'clay_ui.js'
+  .pipe rename 'clay_sdk.js'
   .pipe gulp.dest paths.dist
