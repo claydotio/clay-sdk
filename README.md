@@ -8,9 +8,9 @@ Add to the top of `<body>`
 
 ```html
 <script>
-(function(ℭ,l,a,y,i,o,〆){ℭ[i]=ℭ[i]||function(){
-(ℭ[i].q=ℭ[i].q||[]).push(arguments)},ℭ[i].l=1*new Date();o=l.createElement(a),
-〆=l.getElementsByTagName(a)[0];o.async=1;o.src=y;〆.parentNode.insertBefore(o,〆)
+(function(C,l,a,y,_,i,o){C[_]=C[_]||function(){
+(C[_].q=C[_].q||[]).push(arguments)},C[_].l=1*new Date();i=l.createElement(a),
+o=l.getElementsByTagName(a)[0];i.async=1;i.src=y;o.parentNode.insertBefore(i,o)
 })(window,document,'script','//cdn.wtf/sdk/v1/clay_sdk.js','Clay');
 
 Clay('init', {gameId: 0000})
