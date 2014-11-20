@@ -1,30 +1,34 @@
 z = require 'zorium'
-Clay = require 'clay-sdk-base'
 
 iconStyle = require './icon.styl'
 iconStyle.use()
 
 components =
-  bannerAd: require './components/banner_ad'
-  pageAd: require './components/page_ad'
+  'ads.banner': require './components/banner_ad'
+  'ads.page': require './components/page_ad'
 
-ui = (componentName, options = {}) ->
-  Clay.config.then (config) ->
-    unless components[componentName]
-      throw new Error 'Component not found' + componentName
+ui = (config) ->
+  (componentName, [options], cb) ->
+    options ?= {}
 
-    if Object::toString.call(options) isnt '[object Object]'
-      throw new Error 'options must be an object'
+    if componentName is 'version'
+      return cb null, 'v0.0.8'
 
-    ComponentClass = components[componentName]
+    config.then (config) ->
+      unless components[componentName]
+        throw new Error 'Component not found' + componentName
 
-    component = new ComponentClass config, options
+      if Object::toString.call(options) isnt '[object Object]'
+        throw new Error 'options must be an object'
 
-    component.redraw()
+      ComponentClass = components[componentName]
 
-    return component
+      component = new ComponentClass config, options
 
-ui.version = 'v0.0.8'
+      component.redraw()
 
+      return component
+    .then (x) -> cb null, x
+    .catch cb
 
 module.exports = ui

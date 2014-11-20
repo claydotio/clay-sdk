@@ -11,15 +11,12 @@ describe 'banner ad', ->
     dom.attrs.className.should.be 'c-banner-ad-bottom'
 
   it 'renders iframe top', ->
-    Clay.init(gameId: '1')
     banner = new BannerAd {gameId: '1'}, {position: 'top'}
     dom = banner.render()
     dom.tag.should.be 'iframe'
     dom.attrs.className.should.be 'c-banner-ad-top'
 
   it 'errors if missing position', (done) ->
-    Clay.init(gameId: '1')
-
     try
       new BannerAd()
       done new Error 'Expected error'
@@ -28,8 +25,6 @@ describe 'banner ad', ->
       done()
 
   it 'errors if invalid position', (done) ->
-    Clay.init(gameId: '1')
-
     try
       new BannerAd position: 'INVALID'
       done new Error 'Expected error'

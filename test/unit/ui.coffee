@@ -1,49 +1,50 @@
-rewire = require 'rewire'
 Promise = require 'bluebird'
 
-ui = rewire 'ui'
-ui.__set__ 'Clay.config', Promise.resolve({gameId: '1'})
+ui = require 'ui'
 
 packageConfig = require '../../package.json'
 
 describe 'ui()', ->
+  before ->
+    ui = ui(Promise.resolve {gameId: '1'})
 
-  it 'has a version', ->
-    ui.version.should.be 'v' + packageConfig.version
+  it 'has a version', (done) ->
+    ui 'version', [], (err, v) ->
+      v.should.be 'v' + packageConfig.version
+      done(err)
 
-  it 'returns banner ad components', ->
-    ui('bannerAd', {position: 'top'})
-    .then (banner) ->
+  it 'returns banner ad components', (done) ->
+    ui 'ads.banner', [{position: 'top'}], (err, banner) ->
+      if err
+        return done err
+
       banner.$el.should.exist
-    .then ->
-      ui('bannerAd', {position: 'bottom'})
-    .then (banner) ->
-      banner.$el.should.exist
 
-  it 'returns page ad components', ->
-    ui('pageAd').then (ad) ->
+      ui 'ads.banner', [{position: 'bottom'}], (err, banner) ->
+        banner.$el.should.exist
+        done err
+
+  it 'returns page ad components', (done) ->
+    ui 'ads.page', [], (err, ad) ->
       ad.$el.should.exist
+      done(err)
 
   it 'fails to return invalid component', (done) ->
-    ui('INVALID').then ->
-      done new Error 'expected error'
-    , ->
+    ui 'INVALID', [], (err) ->
+      err.should.exist
       done()
 
   it 'fails when options is array', (done) ->
-    ui('bannerAd', []).then ->
-      done new Error 'expected error'
-    , ->
+    ui 'ads.banner', [[]], (err) ->
+      err.should.exist
       done()
 
   it 'fails when options is a string', (done) ->
-    ui('bannerAd', 'options').then ->
-      done new Error 'expected error'
-    , ->
+    ui 'ads.banner', ['options'], (err) ->
+      err.should.exist
       done()
 
   it 'fails when options is a number', (done) ->
-    ui('bannerAd', 1).then ->
-      done new Error 'expected error'
-    , ->
+    ui 'ads.banner', [1], (err) ->
+      err.should.exist
       done()

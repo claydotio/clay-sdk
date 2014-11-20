@@ -23,6 +23,6 @@ unless Function::bind
   # coffeelint: enable=missing_fat_arrows
 ui = require './ui'
 
-Clay.ui = ui
+Clay 'register', {method: 'ui', fn: ui}
 
 module.exports = Clay
