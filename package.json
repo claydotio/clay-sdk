@@ -1,14 +1,14 @@
 {
   "name": "clay-sdk",
-  "version": "0.0.8",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clay.io SDK - Tools for mobile game developers",
   "scripts": {
     "test": "node_modules/gulp/bin/gulp.js test",
     "build": "node_modules/gulp/bin/gulp.js build",
     "demo": "node_modules/gulp/bin/gulp.js demo"
   },
-  "author": "",
+  "author": "Clay.io",
   "devDependencies": {
     "bluebird": "2.3.11",
     "clay-chai": "0.0.2",
@@ -41,8 +41,32 @@
     "webpack-dev-server": "1.6.5"
   },
   "dependencies": {
-    "clay-sdk-base": "0.0.7",
+    "clay-sdk-base": "1.0.1",
     "coffee-script": "1.8.0",
     "zorium": "0.1.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claydotio/clay-sdk.git"
+  },
+  "keywords": [
+    "clay.io",
+    "sdk",
+    "clay",
+    "ads",
+    "advertisement",
+    "games",
+    "game",
+    "mobile",
+    "mobile games",
+    "game tools"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claydotio/clay-sdk/issues"
+  },
+  "homepage": "https://github.com/claydotio/clay-sdk"
 }

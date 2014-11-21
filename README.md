@@ -4,7 +4,8 @@ Clay.io SDK
 
 ### Install
 
-Add to the top of `<body>`
+Add to the top of `<body>`  
+Replace `0000` with your gameId
 
 ```html
 <script>
@@ -22,14 +23,14 @@ Clay('init', {gameId: 0000})
 ```js
 Clay('init', {gameId: 0000})
 
-Clay('client.share.any', {text: 'Come play a game with me!'})
+Clay('client.share.any', {text: 'Think you can beat my score of 1,702 in Super Cool Game?'})
 
 Clay('ui.ads.banner', {position: 'top'}, function (err, ad) {
   document.body.appendChild(ad.$el)
 })
 ```
 
-### Usage
+### SDK Base Usage
 
 ##### Init
 
@@ -37,7 +38,39 @@ Clay('ui.ads.banner', {position: 'top'}, function (err, ad) {
 Clay('init', {gameId: 0000})
 ```
 
+##### Share Any
+
+Share a message using the best available option.  
+For example, if called from within the Clay.io Android application, the native
+share modal will appear.  
+Otherwise, other services such as twitter will be used (if text is < 140 characters).
+
+```js
+// client.share.any
+//
+// @param {Object} params
+// @param {String} params.text
+Clay('client.share.any', {text: 'Hello World'})
+```
+
+##### Version
+
+```js
+Clay('version', function (err, version) {
+  console.log(version);
+})
+```
+
+### SDK UI Usage
+
+SDK UI calls may return an SDK UI element, which has a DOM node ($el) that may
+be appended to the DOM. E.g. `ad.$el`
+
 ##### Full Page Ads
+
+Displays a full-page ad (480 x 320), including a close button.
+
+**Note:** This is only for mobile devices
 
 ```js
 Clay('ui.ads.page', function (err, ad) {
@@ -47,30 +80,17 @@ Clay('ui.ads.page', function (err, ad) {
 
 ##### Banner Ads
 
-position: top|bottom
+Displays a banner ad (320 x 50) at either the top or bottom of the screen.
+
+**Note:** This is only for mobile devices
 
 ```js
+// ui.ads.banner
+//
+// @param {Object} params
+// @param {String} params.position - 'top' or 'bottom'
 Clay('ui.ads.banner', {position: 'top'}, function (err, ad) {
   document.body.appendChild(ad.$el)
-})
-```
-
-##### Share Any
-
-Share a message using the best available option.  
-For example, if called from within the Clay.io Android application the native
-share modal will appear.  
-Otherwise, other services such as twitter will be used.
-
-```js
-Clay('client.share.any', {text: 'Hello World'})
-```
-
-##### Version
-
-```js
-Clay('version', function (err, version) {
-  console.log(version);
 })
 ```
 

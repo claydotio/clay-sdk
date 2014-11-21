@@ -50,7 +50,6 @@ gulp.task 'test:phantom', ['scripts:test'], (cb) ->
   }, karmaConf), cb
 
 gulp.task 'scripts:test', ->
-
   gulp.src paths.rootTests
   .pipe webpack
     devtool: '#inline-source-map'
@@ -69,8 +68,7 @@ gulp.task 'scripts:test', ->
     resolve:
       extensions: ['.coffee', '.js', '.json', '']
       # browser-builtins is for modules requesting native node modules
-      modulesDirectories: ['web_modules', 'node_modules', './src',
-      './node_modules/browser-builtins/builtin']
+      modulesDirectories: ['node_modules', './src']
   .pipe rename 'tests.js'
   .pipe gulp.dest paths.build
 
@@ -87,7 +85,6 @@ gulp.task 'lint:tests', ->
 
 # start the dev server
 gulp.task 'server', ->
-  # Don't actually watch for changes, just run the server
   nodemon {script: 'bin/dev_server.coffee', ext: 'null', ignore: ['**/*.*']}
 
 gulp.task 'watch:test', ->

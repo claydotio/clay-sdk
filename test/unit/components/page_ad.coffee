@@ -1,5 +1,6 @@
+should = require('clay-chai').should()
+
 PageAd = require 'components/page_ad'
-Clay = require 'clay-sdk-base'
 
 describe 'page ad', ->
   it 'renders iframe', ->

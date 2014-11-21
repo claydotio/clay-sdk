@@ -1,4 +1,5 @@
 Promise = require 'bluebird'
+should = require('clay-chai').should()
 
 ui = require 'ui'
 
