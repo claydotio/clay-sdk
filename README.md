@@ -14,14 +14,14 @@ Replace `0000` with your gameId
 o=l.getElementsByTagName(a)[0];i.async=1;i.src=y;o.parentNode.insertBefore(i,o)
 })(window,document,'script','//cdn.wtf/sdk/v1/clay_sdk.js','Clay');
 
-Clay('init', {gameId: 0000})
+Clay('init', {gameId: '0000'})
 </script>
 ```
 
 ### Example
 
 ```js
-Clay('init', {gameId: 0000})
+Clay('init', {gameId: '0000'})
 
 Clay('client.share.any', {text: 'Think you can beat my score of 1,702 in Super Cool Game?'})
 
@@ -35,7 +35,7 @@ Clay('ui.ads.banner', {position: 'top'}, function (err, ad) {
 ##### Init
 
 ```js
-Clay('init', {gameId: 0000})
+Clay('init', {gameId: '0000'})
 ```
 
 ##### Share Any
