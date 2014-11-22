@@ -1,4 +1,4 @@
-require 'polyfills'
+require './polyfill'
 
 Clay = require 'clay-sdk-base'
 
