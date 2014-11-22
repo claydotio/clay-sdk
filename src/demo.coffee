@@ -1,14 +1,6 @@
-Promise = require 'bluebird'
 Clay = require './index'
 
-Clay.init({gameId: '1', debug: true}).then null, (err) -> console.log err
+Clay 'init', {gameId: '1', debug: true}
 
-Promise.all [
-  Clay.ui 'pageAd'
-  Clay.ui 'bannerAd', position: 'bottom'
-  Clay.ui 'bannerAd', position: 'top'
-]
-.spread (adTop, adBottom, adFull) ->
-  document.body.appendChild adTop.$el
-  document.body.appendChild adBottom.$el
-  document.body.appendChild adFull.$el
+Clay 'ui.ads.banner', {position: 'bottom'}, (err, ad) ->
+  document.body.appendChild(ad.$el)

@@ -12,7 +12,7 @@ ui = (config) ->
     options ?= {}
 
     if componentName is 'version'
-      return cb null, 'v1.0.0'
+      return cb null, 'v1.0.1'
 
     config.then (config) ->
       unless components[componentName]

@@ -7,6 +7,9 @@ UIComponent = require '../ui_component'
 config = require '../../config'
 url = require '../../util/url'
 
+checkPortrait = ->
+  window.innerHeight > window.innerWidth
+
 module.exports = class PageAd extends UIComponent
   constructor: ({gameId} = {}) ->
     super()
@@ -19,11 +22,11 @@ module.exports = class PageAd extends UIComponent
     scr_h = window.screen.height
     referer = window.location.href.substr(0, 255)
 
-    isPortrait = scr_h > scr_w
+    isPortrait = checkPortrait()
 
     @iframeClass = if isPortrait \
                     then '.c-page-ad-full-portrait'
-                    else '.c-page-ad-full-portrait'
+                    else '.c-page-ad-full-landscape'
 
 
     @iframeUrl = url.queryPath config.API_URL + '/ads', {
