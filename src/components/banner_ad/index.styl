@@ -1,3 +1,5 @@
+@require 'nib'
+
 json('../../vars.styl.json')
 
 .c-banner-ad-top
@@ -8,6 +10,9 @@ json('../../vars.styl.json')
   margin-left: (-@width/2)
   left: 50%
   z-index: $zIndexBannerAd
+  border: none
+  background: transparent
+  overflow: hidden
 
 .c-banner-ad-bottom
   width: 320px
@@ -17,3 +22,6 @@ json('../../vars.styl.json')
   margin-left: (-@width/2)
   left: 50%
   z-index: $zIndexBannerAd
+  border: none
+  background: transparent
+  overflow: hidden

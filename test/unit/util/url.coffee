@@ -5,4 +5,12 @@ url = require 'util/url'
 
 describe 'Util | Url', ->
   it 'joins path params', ->
-    url.queryPath('abc', {a: 'b', c: 'd', e: 'f'}).should.be 'abc?a=b&c=d&e=f&'
+    url.queryPath 'abc', {
+      ab: 'bc'
+      c: 'd'
+      e: 'f'
+      g: '?'
+      h: 'a&b'
+      i: 'z=z'
+    }
+    .should.be 'abc?ab=bc&c=d&e=f&g=%3F&h=a%26b&i=z%3Dz&'

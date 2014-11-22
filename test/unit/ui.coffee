@@ -1,4 +1,4 @@
-Promise = require 'bluebird'
+Promise = require 'promiz'
 should = require('clay-chai').should()
 
 ui = require 'ui'
@@ -7,9 +7,10 @@ packageConfig = require '../../package.json'
 
 describe 'ui()', ->
   before ->
-    ui = ui(Promise.resolve {gameId: '1'})
+    config = Promise.resolve {gameId: '1'}
+    ui = ui(config)
 
-  it 'has a version', (done) ->
+  it 'has the correct version', (done) ->
     ui 'version', [], (err, v) ->
       v.should.be 'v' + packageConfig.version
       done(err)

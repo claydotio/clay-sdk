@@ -1,0 +1,7 @@
+{
+  "name": "clay-sdk",
+  "private": true,
+  "dependencies": {
+    "nib": "1.0.3"
+  }
+}

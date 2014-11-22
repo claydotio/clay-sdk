@@ -7,11 +7,15 @@ UIComponent = require '../ui_component'
 config = require '../../config'
 url = require '../../util/url'
 
+isPortrait = ->
+  window.innerHeight > window.innerWidth
+
 module.exports = class PageAd extends UIComponent
   constructor: ({gameId} = {}) ->
     super()
     styles.use()
 
+    # Leadbolt params
     lang = if window.navigator.language \
            then window.navigator.language
            else window.navigator.browserLanguage
@@ -19,16 +23,14 @@ module.exports = class PageAd extends UIComponent
     scr_h = window.screen.height
     referer = window.location.href.substr(0, 255)
 
-    isPortrait = scr_h > scr_w
-
-    @iframeClass = if isPortrait \
+    @iframeClass = if isPortrait() \
                     then '.c-page-ad-full-portrait'
-                    else '.c-page-ad-full-portrait'
+                    else '.c-page-ad-full-landscape'
 
 
     @iframeUrl = url.queryPath config.API_URL + '/ads', {
       gameId
-      style: if isPortrait then 'pagePortrait' else 'pageLandscape'
+      style: if isPortrait() then 'pagePortrait' else 'pageLandscape'
       redirect: true
 
       # Leadbolt params
@@ -43,7 +45,5 @@ module.exports = class PageAd extends UIComponent
       z '.c-page-ad-close', {onclick: @remove},
         z 'i.icon.icon-close'
       z "iframe.#{@iframeClass}",
-        frameborder: 0
         src: @iframeUrl
-        allowtransparency: true
         scrolling: 'no'

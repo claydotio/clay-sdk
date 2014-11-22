@@ -5,7 +5,7 @@ UIComponent = require 'components/ui_component'
 describe 'ui component', ->
   it 'sets $el on constructor', ->
     component = new UIComponent()
-    component.$el.should.exist
+    component.$el.should.be.a.HTMLElement
 
   it 'redraws, calling render', ->
     component = new UIComponent()

@@ -2,7 +2,7 @@ z = require 'zorium'
 
 module.exports = class UIComponent
   constructor: ->
-    @_events = {}
+    @_eventListeners = {}
     @$el = document.createElement 'div'
 
   redraw: =>
@@ -13,11 +13,11 @@ module.exports = class UIComponent
     @emit 'remove'
 
   on: (name, fn) =>
-    (@_events[name] = @_events[name] or []).push(fn)
+    (@_eventListeners[name] = @_eventListeners[name] or []).push(fn)
 
   emit: (name) =>
-    list = @_events[name] or []
+    list = @_eventListeners[name] or []
     i = list.length
     while i
       i -= 1
-      list[i].apply(1, [].slice.call(arguments, 1))
+      list[i].apply(null, [].slice.call(arguments, 1))

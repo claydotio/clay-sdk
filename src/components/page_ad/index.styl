@@ -1,3 +1,5 @@
+@require 'nib'
+
 json('../../vars.styl.json')
 
 $zIndexAd = 1
@@ -30,6 +32,9 @@ $zIndexClose = 2
   margin-left: (-@width/2)
   margin-top: (-@height/2)
   z-index: $zIndexAd
+  border: none
+  background: transparent
+  overflow: hidden
 
 .c-page-ad-full-landscape
   width: 480px
@@ -40,3 +45,6 @@ $zIndexClose = 2
   margin-left: (-@width/2)
   margin-top: (-@height/2)
   z-index: $zIndexAd
+  border: none
+  background: transparent
+  overflow: hidden

@@ -15,6 +15,7 @@ module.exports = class BannerAd extends UIComponent
     if position not in ['top', 'bottom']
       throw new Error 'Invalid or missing position'
 
+    # Leadbolt params
     lang = if window.navigator.language \
            then window.navigator.language
            else window.navigator.browserLanguage
@@ -40,7 +41,5 @@ module.exports = class BannerAd extends UIComponent
 
   render: =>
     z "iframe.#{@iframeClass}",
-      frameborder: 0
       src: @iframeUrl
-      allowtransparency: true
       scrolling: 'no'
