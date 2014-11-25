@@ -28,7 +28,7 @@ module.exports = class PageAd extends UIComponent
                     else '.c-page-ad-full-landscape'
 
 
-    @iframeUrl = url.queryPath config.API_URL + '/ads', {
+    @iframeUrl = url.queryPath config.API_PATH + '/ads', {
       gameId
       style: if isPortrait() then 'pagePortrait' else 'pageLandscape'
       redirect: true
