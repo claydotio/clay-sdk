@@ -27,7 +27,7 @@ module.exports = class BannerAd extends UIComponent
       when 'top' then '.c-banner-ad-top'
       when 'bottom' then '.c-banner-ad-bottom'
 
-    @iframeUrl = url.queryPath config.API_PATH + '/ads', {
+    @iframeUrl = url.queryPath config.API_URL + '/ads', {
       gameId
       style: 'banner'
       redirect: true
