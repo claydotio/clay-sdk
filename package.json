@@ -1,6 +1,6 @@
 {
   "name": "clay-sdk",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": true,
   "description": "Clay.io SDK - Tools for mobile game developers",
   "scripts": {
