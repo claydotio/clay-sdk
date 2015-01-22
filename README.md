@@ -70,7 +70,7 @@ Clay('version', function (err, version) {
 SDK UI calls may return an SDK UI element, which has a DOM node ($el) that may
 be appended to the DOM. E.g. `ad.$el`
 
-**NOTE: If you want to implement ads in your game, please send an email to contact@clay.io with your gameId(s) and we'll activate ads for the game(s).**
+**NOTE: If you want to implement ads in your game, please send an email to contact@clay.io with your gameId(s) and we'll activate ads for the game(s). Your game must follow our [Ad Guidelines](https://github.com/claydotio/design-assets/blob/master/ad_guidelines.md)**
 
 ##### Full Page Ads
 
