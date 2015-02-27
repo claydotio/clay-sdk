@@ -3,7 +3,7 @@ z = require 'zorium'
 iconStyle = require './icon.styl'
 iconStyle.use()
 
-VERSION = 'v1.1.3'
+VERSION = 'v1.1.4'
 
 components =
   'ads.banner': require './components/banner_ad'
