@@ -43,7 +43,7 @@ module.exports = class PageAd extends UIComponent
   render: =>
     z '.c-page-ad-background',
       z '.c-page-ad-close', {onclick: @remove},
-        z 'i.icon.icon-close'
+        z 'i.clay-icon.clay-icon-close'
       z "iframe.#{@iframeClass}",
         src: @iframeUrl
         scrolling: 'no'
