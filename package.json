@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "node_modules/bower/bin/bower install",
     "test": "node_modules/gulp/bin/gulp.js test",
-    "build": "node_modules/gulp/bin/gulp.js build",
+    "build": "PUBLIC_CLAY_API_URL=https://clay.io/api/m/v1 node_modules/gulp/bin/gulp.js build",
     "demo": "node_modules/gulp/bin/gulp.js demo"
   },
   "author": "Clay.io",

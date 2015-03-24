@@ -6,6 +6,7 @@ styles = require './index.styl'
 UIComponent = require '../ui_component'
 config = require '../../config'
 url = require '../../util/url'
+environment = require '../../util/environment'
 
 isPortrait = ->
   window.innerHeight > window.innerWidth
@@ -28,7 +29,7 @@ module.exports = class PageAd extends UIComponent
                     else '.c-page-ad-full-landscape'
 
 
-    @iframeUrl = url.queryPath config.API_URL + '/ads', {
+    queryParams = {
       gameId
       style: if isPortrait() then 'pagePortrait' else 'pageLandscape'
       redirect: true
@@ -39,6 +40,11 @@ module.exports = class PageAd extends UIComponent
       scr_h
       referer
     }
+
+    unless environment.isMobile()
+      queryParams.isMobile = false
+
+    @iframeUrl = url.queryPath config.PUBLIC_CLAY_API_URL + '/ads', queryParams
 
   render: =>
     z '.c-page-ad-background',

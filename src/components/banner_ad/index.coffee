@@ -6,6 +6,7 @@ styles = require './index.styl'
 UIComponent = require '../ui_component'
 config = require '../../config'
 url = require '../../util/url'
+environment = require '../../util/environment'
 
 module.exports = class BannerAd extends UIComponent
   constructor: ({gameId} = {}, {position} = {}) ->
@@ -27,7 +28,7 @@ module.exports = class BannerAd extends UIComponent
       when 'top' then '.c-banner-ad-top'
       when 'bottom' then '.c-banner-ad-bottom'
 
-    @iframeUrl = url.queryPath config.API_URL + '/ads', {
+    queryParams = {
       gameId
       style: 'banner'
       redirect: true
@@ -38,6 +39,11 @@ module.exports = class BannerAd extends UIComponent
       scr_h
       referer
     }
+
+    unless environment.isMobile()
+      queryParams.isMobile = false
+
+    @iframeUrl = url.queryPath config.PUBLIC_CLAY_API_URL + '/ads', queryParams
 
   render: =>
     z "iframe.#{@iframeClass}",

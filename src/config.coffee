@@ -1,2 +1,3 @@
 module.exports =
-  API_URL: process.env.API_URL or 'https://clay.io/api/m/v1'
+  PUBLIC_CLAY_API_URL: process.env.PUBLIC_CLAY_API_URL or
+                       'https://clay.io/api/m/v1'
